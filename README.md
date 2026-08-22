@@ -1,275 +1,250 @@
-# MockMentor-AI — AI-Powered Interview Coach
+# MockMentor-AI 
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Python-3.11-3776AB?style=for-the-badge&logo=python&logoColor=white"/>
-  <img src="https://img.shields.io/badge/FastAPI-0.110-009688?style=for-the-badge&logo=fastapi&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Groq-LLaMA3-F55036?style=for-the-badge&logo=meta&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Docker-Containerised-2496ED?style=for-the-badge&logo=docker&logoColor=white"/>
-  <img src="https://img.shields.io/badge/AWS-Elastic%20Beanstalk-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white"/>
-  <img src="https://img.shields.io/badge/React-Frontend-61DAFB?style=for-the-badge&logo=react&logoColor=black"/>
-</p>
+![MockMentor-AI Banner](screenshots/banner.png)
 
-<p align="center">
-  <b>MockMentor-AI</b> is a full-stack AI interview coaching platform that simulates real technical and HR interview sessions, evaluates answers in real time using LLMs, and gives structured feedback — helping candidates prepare smarter for placements.
-</p>
+> An AI-powered mock interview platform built with FastAPI and Groq LLaMA3. Practice real interview questions, get instant feedback, and go into placements confident.
 
 ---
 
-## Table of Contents
-- [Overview](#-overview)
-- [Architecture](#-architecture)
-- [Features](#-features)
+## 📋 Table of Contents
+
+- [About](#-about)
+- [Key Features](#-key-features)
+- [System Architecture](#-system-architecture)
+- [See MockMentor-AI in Action](#-see-mockmentor-ai-in-action)
+- [Installation](#-installation)
+- [Usage](#-usage)
 - [Tech Stack](#-tech-stack)
-- [Getting Started](#-getting-started)
-- [Docker Setup](#-docker-setup)
-- [AWS Deployment](#-aws-deployment)
-- [API Reference](#-api-reference)
-- [Screenshots](#-screenshots)
-- [Roadmap](#-roadmap)
+- [Team](#-team)
+- [Contributing](#-contributing)
+- [Found a Bug?](#-found-a-bug)
+- [License](#-license)
 
 ---
 
-## Overview
+## 🟦 About
 
-MockMentor-AI addresses a real gap in campus placement preparation — candidates often don't know how their answers will be perceived by an actual interviewer. This platform:
+MockMentor-AI is an AI-powered interview coaching platform that simulates real technical and HR interview sessions. It generates role-specific questions, evaluates your answers using LLMs, and gives structured feedback — all in real time.
 
-- Generates **role-specific interview questions** (technical, HR, behavioural)
-- **Evaluates candidate responses** using Groq's LLaMA3 inference API
-- Delivers **structured feedback**: clarity, depth, relevance, and improvement tips
-- Runs as a **containerised microservice**, deployed on AWS Elastic Beanstalk
+**Why would you use MockMentor-AI?**
 
-Built as a production-ready portfolio project targeting placements at companies like Deloitte, IBM, EY, and FactSet.
-
----
-
-## Architecture
-
-```
-┌─────────────────────────────────────────────────────────┐
-│                        CLIENT                           │
-│                  React Frontend (Vite)                  │
-│         Interview UI · Question Display · Feedback      │
-└────────────────────────┬────────────────────────────────┘
-                         │ HTTP/REST
-                         ▼
-┌─────────────────────────────────────────────────────────┐
-│                   FastAPI Backend                       │
-│                                                         │
-│   /generate-question  →  Question Engine                │
-│   /evaluate-answer    →  LLM Evaluation Pipeline        │
-│   /session            →  Session State Manager          │
-│   /history            →  Response Logger                │
-└──────────┬──────────────────────────┬───────────────────┘
-           │                          │
-           ▼                          ▼
-┌──────────────────┐      ┌───────────────────────────┐
-│   Groq API       │      │   PostgreSQL (planned)    │
-│   LLaMA3-8B      │      │   Session · History · User│
-│   Inference      │      │   Analytics               │
-└──────────────────┘      └───────────────────────────┘
-           │
-           ▼
-┌─────────────────────────────────────────────────────────┐
-│                  Docker Container                       │
-│              AWS Elastic Beanstalk                      │
-│            (EC2 + Load Balancer + S3)                   │
-└─────────────────────────────────────────────────────────┘
-```
+- When you want to practice interviews without needing another person
+- For getting honest, structured feedback on your answers instantly
+- When you need role-specific questions (DSA, System Design, HR, Behavioural)
+- For tracking your improvement across multiple practice sessions
+- When you want to simulate the pressure of a real placement interview
 
 ---
 
-## Features
+## 🟩 Key Features
 
-| Feature | Description |
-|---|---|
-| **AI Mock Interview** | Simulates full interview sessions with role-specific questions |
-| **LLM-Based Evaluation** | Uses Groq's LLaMA3 to assess answers on clarity, depth, and relevance |
-| **Structured Feedback** | Returns actionable improvement tips per answer |
-| **Session Management** | Tracks multi-turn interview conversations |
-| **Dockerised** | Fully containerised — runs identically locally and in production |
-| **Cloud Deployed** | Hosted on AWS Elastic Beanstalk with environment-based config |
-| **Fast Inference** | Groq API delivers sub-second LLM response times |
+### 🤖 AI-Driven Interview Sessions
+- Generates role-specific questions based on domain and difficulty
+- Supports Technical, HR, and Behavioural interview types
+- Multi-turn conversation — the AI follows up based on your answers
+
+### 📊 Real-Time Answer Evaluation
+- Evaluates answers on clarity, depth, technical accuracy, and relevance
+- Powered by Groq's LLaMA3-8B for sub-second inference
+- Scores each answer and explains what was strong and what was missing
+
+### 📋 Structured Feedback
+- Per-answer improvement tips, not just a score
+- Identifies gaps in explanation and suggests better framing
+- Highlights strong points so you know what to keep doing
+
+### 🔒 Privacy by Design
+- No answer data stored externally — all processing through secured API
+- Environment variables used for all sensitive credentials
+- No user tracking or third-party analytics
+
+### ⚡ Performance
+- Sub-second LLM responses via Groq inference engine
+- FastAPI async backend handles concurrent sessions efficiently
+- Docker container ensures consistent performance across environments
 
 ---
 
-## Tech Stack
+## 🔐 System Architecture
 
-| Layer | Technology |
-|---|---|
-| **Backend** | Python 3.11, FastAPI, Uvicorn |
-| **LLM Inference** | Groq API (LLaMA3-8B-8192) |
-| **Frontend** | React (Vite), Axios |
-| **Containerisation** | Docker, Docker Compose |
-| **Cloud** | AWS Elastic Beanstalk, EC2 |
-| **Database** *(planned)* | PostgreSQL |
-| **Environment** | python-dotenv, Pydantic Settings |
+### How We Handle AI Evaluation
+- **Question Generation:** Role and difficulty sent to LLaMA3 via Groq API — question returned in <1 second
+- **Answer Evaluation:** Your answer + the original question are sent together for contextual evaluation
+- **Feedback Assembly:** The backend structures the raw LLM output into scored, readable feedback
+- **Session Tracking:** Each interview session is tracked in memory (PostgreSQL persistence coming soon)
+
+### Backend & Network
+- **CORS Protection:** Only configured frontend origins can access the API
+- **Environment Isolation:** API keys and secrets never hardcoded — loaded via `.env`
+- **Dockerised Deployment:** Container isolates the runtime environment completely
+- **Cloud Hosting:** AWS Elastic Beanstalk manages scaling and uptime automatically
+
+### How Sessions Work
+- **Start:** A new session ID is generated when you begin an interview
+- **Mid-Interview:** Each Q&A pair is tracked within the session context
+- **End:** Session summary compiled with overall performance insight
+- **Clear State:** Closing the session wipes in-memory state — no residual data
 
 ---
 
-## Getting Started
+## 🎬 See MockMentor-AI in Action
 
-### Prerequisites
-- Python 3.11+
-- Node.js 18+
-- Groq API Key → [console.groq.com](https://console.groq.com)
-- Docker (optional, for containerised run)
+![MockMentor-AI Demo](screenshots/demo.gif)
 
-### 1. Clone the Repository
+*Click the image above to watch the demo*
+
+| Interview Session | Feedback View | Question Selection |
+|---|---|---|
+| ![Session](screenshots/session.png) | ![Feedback](screenshots/feedback.png) | ![Questions](screenshots/questions.png) |
+
+---
+
+## 🟦 Installation
+
+### Full Setup (Client and Server)
+
 ```bash
+# Clone the repository
 git clone https://github.com/Irin356/MockMentor-AI.git
 cd MockMentor-AI
 ```
 
-### 2. Backend Setup
+**Setup Server:**
 ```bash
 cd backend
 python -m venv venv
 
 # Windows
 venv\Scripts\activate
-# Linux/Mac
+# Mac/Linux
 source venv/bin/activate
 
 pip install -r requirements.txt
 ```
 
-### 3. Environment Variables
-Create a `.env` file inside `/backend`:
-```env
+**Configure environment:**
+```bash
+# Create .env file inside /backend
 GROQ_API_KEY=your_groq_api_key_here
 ```
+Get your free Groq API key at [console.groq.com](https://console.groq.com)
 
-### 4. Run the Backend
+**Setup Client:**
 ```bash
+cd ../frontend
+npm install
+```
+
+---
+
+## 🟦 Usage
+
+### What You'll Need
+- Python 3.11 or newer
+- Node.js 18 or newer
+- A free Groq API key from [console.groq.com](https://console.groq.com)
+- A modern browser (Chrome, Edge, Safari)
+
+### Running the Application
+
+**Start the Server:**
+```bash
+cd backend
 uvicorn main:app --reload --port 8000
 ```
 API docs available at: `http://localhost:8000/docs`
 
-### 5. Frontend Setup
+**Start the Client:**
 ```bash
-cd ../frontend
-npm install
+cd frontend
 npm run dev
 ```
-Frontend available at: `http://localhost:5173`
+App available at: `http://localhost:5173`
 
----
+### Using MockMentor-AI
 
-## 🐳 Docker Setup
+1. Open MockMentor-AI in your browser at `http://localhost:5173`
+2. Select your interview type — Technical, HR, or Behavioural
+3. Choose your domain (e.g. Data Structures, System Design, Python)
+4. Pick a difficulty — Easy, Medium, or Hard
+5. Read the question and type your answer in the response box
+6. Hit **Submit Answer** — feedback appears within seconds
+7. Continue to the next question or end the session for a summary
+8. Review your overall performance and focus areas before your next practice
 
-### Build and Run with Docker Compose
+### 🐳 Running with Docker
+
 ```bash
+# Build and start everything
 docker-compose up --build
-```
 
-### Build Backend Image Only
-```bash
-cd backend
-docker build -t mockmentor-ai .
-docker run -p 8000:8000 --env-file .env mockmentor-ai
+# Backend only
+docker build -t mockmentor-ai ./backend
+docker run -p 8000:8000 --env-file ./backend/.env mockmentor-ai
 ```
 
 ---
 
-## ☁️ AWS Deployment
+## 🟦 Tech Stack
 
-MockMentor-AI is deployed on **AWS Elastic Beanstalk** using a Docker platform.
+MockMentor-AI was built using:
 
-### Deployment Steps
-
-**1. Install EB CLI**
-```bash
-pip install awsebcli
-```
-
-**2. Initialise Elastic Beanstalk**
-```bash
-eb init mockmentor-ai --platform docker --region ap-south-1
-```
-
-**3. Create Environment**
-```bash
-eb create mockmentor-env
-```
-
-**4. Set Environment Variables on AWS**
-```bash
-eb setenv GROQ_API_KEY=your_groq_api_key_here
-```
-
-**5. Deploy**
-```bash
-eb deploy
-```
-
-**6. Open the App**
-```bash
-eb open
-```
-
-> ℹ️ The `Dockerfile` at the project root is used by Elastic Beanstalk automatically.
+- **Backend:** Python 3.11, FastAPI, Uvicorn
+- **LLM Inference:** Groq API (LLaMA3-8B-8192)
+- **Frontend:** React (Vite), Axios
+- **Containerisation:** Docker, Docker Compose
+- **Cloud:** AWS Elastic Beanstalk (EC2 + Load Balancer)
+- **Database:** PostgreSQL *(in progress)*
+- **Config:** python-dotenv, Pydantic Settings
 
 ---
 
-## 📡 API Reference
+## 👥 Team
 
-| Method | Endpoint | Description |
-|---|---|---|
-| `GET` | `/` | Health check |
-| `POST` | `/generate-question` | Generate interview question by role/domain |
-| `POST` | `/evaluate-answer` | Evaluate candidate answer using LLM |
-| `GET` | `/session/{session_id}` | Retrieve session history |
+MockMentor-AI was built by:
 
-### Example — Generate Question
-```bash
-curl -X POST http://localhost:8000/generate-question \
-  -H "Content-Type: application/json" \
-  -d '{"role": "Software Engineer", "domain": "Data Structures", "difficulty": "medium"}'
-```
+- **[Irin Antony](https://github.com/Irin356)** — Full-stack development, LLM integration, AWS deployment
 
-### Example — Evaluate Answer
-```bash
-curl -X POST http://localhost:8000/evaluate-answer \
-  -H "Content-Type: application/json" \
-  -d '{
-    "question": "Explain the difference between a stack and a queue.",
-    "answer": "A stack follows LIFO and a queue follows FIFO..."
-  }'
-```
+B.Tech CSE (Cyber Security Honours), Government Model Engineering College, Kochi — KTU 2027 Batch
 
 ---
 
-## 📸 Screenshots
+## 🤝 Contributing
 
-> *Screenshots will be added post-deployment.*
+We'd love to help make MockMentor-AI even better:
 
-| Interview Session | Feedback View | Dashboard |
-|---|---|---|
-| *Coming soon* | *Coming soon* | *Coming soon* |
-
----
-
-## 🗺️ Roadmap
-
-- [x] FastAPI backend with Groq LLM integration
-- [x] Docker containerisation
-- [x] AWS Elastic Beanstalk deployment
-- [ ] PostgreSQL integration for session persistence
-- [ ] User authentication (JWT)
-- [ ] Answer history & performance analytics
-- [ ] Voice input support
-- [ ] Role-specific question banks (DSA, System Design, HR)
+1. Fork this repository
+2. Create your feature branch: `git checkout -b feature/your-feature`
+3. Make your changes and test them
+4. Commit: `git commit -m "Add your feature"`
+5. Push: `git push origin feature/your-feature`
+6. Open a Pull Request describing what you changed and why
 
 ---
 
-## 👩‍💻 Author
+## 🔒 Found a Bug?
 
-**Irin Antony**  
-B.Tech CSE (Cyber Security Honours) — Government Model Engineering College, Kochi  
-[GitHub](https://github.com/Irin356) · [LinkedIn](https://linkedin.com/in/irin-antony)
+For bugs or issues, please open a [GitHub Issue](https://github.com/Irin356/MockMentor-AI/issues) with:
+- Steps to reproduce
+- Expected vs actual behaviour
+- Your OS and browser version
+
+For security vulnerabilities, please report privately via GitHub's security advisory tab rather than opening a public issue.
 
 ---
 
-## 📄 Licence
+## 📋 License
 
-This project is open source and available under the [MIT License](LICENSE).
+MockMentor-AI is MIT licensed — see the [LICENSE](LICENSE) file for details.
+
+---
+
+## ⚠️ API Considerations
+
+- **Groq Free Tier:** Rate limits apply on the free plan — avoid rapid repeated submissions
+- **Key Safety:** Never commit your `.env` file — it is already in `.gitignore`
+- **AWS Costs:** Elastic Beanstalk uses EC2 — remember to terminate environments when not in use to avoid charges
+
+---
+
+*Thank you for checking out MockMentor-AI!*
