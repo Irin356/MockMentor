@@ -1,5 +1,5 @@
-# MockMentor-AI 
-*MockMentor-AI is an [AI-powered](https://groq.com) mock interview platform built with [FastAPI](https://fastapi.tiangolo.com) and [Groq LLaMA3](https://console.groq.com). Practice real interview questions, get instant feedback, and go into placements confident.*
+# PrepNova
+*PrepNova is an [AI-powered](https://groq.com) mock interview platform built with [FastAPI](https://fastapi.tiangolo.com) and [Groq LLaMA3](https://console.groq.com). Practice real interview questions, get instant feedback, and go into placements confident.*
 
 ![MockMentor-AI Banner](screenshots/banner.png)
 
@@ -24,7 +24,7 @@
 
 ## 🟦 About
 
-MockMentor-AI is an AI-powered interview coaching platform that simulates real technical and HR interview sessions. It generates role-specific questions, evaluates your answers using LLMs, and gives structured feedback — all in real time.
+PrepNova is an AI-powered interview coaching platform that simulates real technical and HR interview sessions. It generates role-specific questions, evaluates your answers using LLMs, and gives structured feedback — all in real time.
 
 **Why would you use MockMentor-AI?**
 
@@ -89,7 +89,7 @@ MockMentor-AI is an AI-powered interview coaching platform that simulates real t
 
 ## 🎬 See MockMentor-AI in Action
 
-![MockMentor-AI Demo](screenshots/demo.gif)
+![PrepNova Demo](screenshots/demo.gif)
 
 *Click the image above to watch the demo*
 
@@ -161,7 +161,7 @@ npm run dev
 ```
 App available at: `http://localhost:5173`
 
-### Using MockMentor-AI
+### Using PrepNova
 
 1. Open MockMentor-AI in your browser at `http://localhost:5173`
 2. Select your interview type — Technical, HR, or Behavioural
@@ -187,7 +187,7 @@ docker run -p 8000:8000 --env-file ./backend/.env mockmentor-ai
 
 ## 🟦 Tech Stack
 
-MockMentor-AI was built using:
+PrepNova was built using:
 
 - **Backend:** Python 3.11, FastAPI, Uvicorn
 - **LLM Inference:** Groq API (LLaMA3-8B-8192)
@@ -201,7 +201,7 @@ MockMentor-AI was built using:
 
 ## 👥 Team
 
-MockMentor-AI was built by:
+PrepNova was built by:
 
 - **[Irin Antony](https://github.com/Irin356)** — Full-stack development, LLM integration, AWS deployment
 
@@ -247,4 +247,4 @@ MockMentor-AI is MIT licensed — see the [LICENSE](LICENSE) file for details.
 
 ---
 
-*Thank you for checking out MockMentor-AI!*
+*Thank you for checking out AI MOCK INTERVIEW(PrepNova)!*
