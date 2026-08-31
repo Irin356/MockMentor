@@ -1,5 +1,5 @@
-# PrepNova
-*PrepNova is an [AI-powered](https://groq.com) mock interview platform built with [FastAPI](https://fastapi.tiangolo.com) and [Groq LLaMA3](https://console.groq.com). Practice real interview questions, get instant feedback, and go into placements confident.*
+# MockMentor AI
+*MockMentor AI is an [AI-powered](https://groq.com) mock interview platform built with [FastAPI](https://fastapi.tiangolo.com) and [Groq LLaMA3](https://console.groq.com). Practice real interview questions, get instant feedback, and go into placements confident.*
 
 ![MockMentor-AI Banner](screenshots/banner.png)
 
@@ -24,7 +24,7 @@
 
 ## 🟦 About
 
-PrepNova is an AI-powered interview coaching platform that simulates real technical and HR interview sessions. It generates role-specific questions, evaluates your answers using LLMs, and gives structured feedback — all in real time.
+MockMentor AI is an AI-powered interview coaching platform that simulates real technical and HR interview sessions. It generates role-specific questions, evaluates your answers using LLMs, and gives structured feedback — all in real time.
 
 **Why would you use MockMentor-AI?**
 
@@ -161,7 +161,7 @@ npm run dev
 ```
 App available at: `http://localhost:5173`
 
-### Using PrepNova
+### Using MockMentor AI
 
 1. Open MockMentor-AI in your browser at `http://localhost:5173`
 2. Select your interview type — Technical, HR, or Behavioural
@@ -205,7 +205,7 @@ PrepNova was built by:
 
 - **[Irin Antony](https://github.com/Irin356)** — Full-stack development, LLM integration, AWS deployment
 
-B.Tech CSE (Cyber Security Honours), Government Model Engineering College, Kochi — KTU 2027 Batch
+B.Tech CSE, Government Model Engineering College, Kochi — KTU 2027 Batch
 
 ---
 
