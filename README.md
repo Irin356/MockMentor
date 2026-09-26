@@ -1,5 +1,5 @@
-# MockMentor AI
-*MockMentor AI is an [AI-powered](https://groq.com) mock interview platform built with [FastAPI](https://fastapi.tiangolo.com) and [Groq LLaMA3](https://console.groq.com). Practice real interview questions, get instant feedback, and go into placements confident.*
+# MockMentor
+*MockMentor is an [AI-powered](https://groq.com) mock interview platform built with [FastAPI](https://fastapi.tiangolo.com) and [Groq LLaMA3](https://console.groq.com). Practice real interview questions, get instant feedback, and go into placements confident.*
 
 ![MockMentor-AI Banner](screenshots/banner.png)
 
@@ -24,7 +24,7 @@
 
 ## 🟦 About
 
-MockMentor AI is an AI-powered interview coaching platform that simulates real technical and HR interview sessions. It generates role-specific questions, evaluates your answers using LLMs, and gives structured feedback — all in real time.
+MockMentor is an AI-powered interview coaching platform that simulates real technical and HR interview sessions. It generates role-specific questions, evaluates your answers using LLMs, and gives structured feedback — all in real time.
 
 **Why would you use MockMentor-AI?**
 
