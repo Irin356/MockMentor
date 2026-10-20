@@ -63,6 +63,13 @@
     background: var(--accent-glow); border: 1px solid var(--border2);
     color: var(--accent2); padding: 3px 10px; border-radius: 99px;
   }
+  .nav-actions { display: flex; align-items: center; gap: 12px; }
+  .progress-btn {
+    background: var(--accent); color: #fff; border: 0; border-radius: 8px;
+    padding: 8px 13px; font: 600 12px var(--sans); cursor: pointer;
+    transition: background .15s, transform .15s;
+  }
+  .progress-btn:hover { background: #2563EB; transform: translateY(-1px); }
 
   /* HERO */
   .hero {
@@ -276,6 +283,69 @@
     display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
   .h-meta { font-size: 11px; color: var(--text3); }
 
+  /* DAILY PROGRESS */
+  .progress-dialog {
+    width: min(760px, calc(100% - 28px)); max-height: 88vh; overflow: auto;
+    margin: auto; padding: 0; color: var(--text); background: var(--bg2);
+    border: 1px solid var(--border2); border-radius: 16px; box-shadow: 0 24px 80px rgba(0,0,0,.55);
+  }
+  .progress-dialog::backdrop { background: rgba(3,7,18,.78); backdrop-filter: blur(5px); }
+  .progress-head {
+    position: sticky; top: 0; z-index: 1; display: flex; justify-content: space-between;
+    align-items: flex-start; gap: 1rem; padding: 1.4rem 1.5rem;
+    background: rgba(13,21,38,.96); border-bottom: 1px solid var(--border);
+  }
+  .progress-head h2 { font-size: 20px; }
+  .progress-subtitle { color: var(--text2); font-size: 12px; margin-top: 3px; }
+  .progress-close {
+    border: 1px solid var(--border); background: var(--surface); color: var(--text2);
+    border-radius: 8px; width: 34px; height: 34px; font-size: 19px; cursor: pointer;
+  }
+  .progress-close:hover { color: var(--text); border-color: var(--border2); }
+  .progress-body { padding: 1.25rem 1.5rem 1.5rem; }
+  .progress-notice {
+    display: none; padding: 9px 12px; margin-bottom: 1rem; border-radius: 8px;
+    color: var(--amber); background: var(--amber-bg); font-size: 12px;
+  }
+  .progress-notice.visible { display: block; }
+  .progress-summary { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .progress-stat {
+    padding: 1rem; border: 1px solid var(--border); border-radius: 10px; background: var(--surface);
+  }
+  .progress-stat-value { font: 700 21px var(--mono); color: var(--accent2); }
+  .progress-stat-label { color: var(--text3); font-size: 11px; margin-top: 3px; }
+  .progress-section { margin-top: 1.4rem; }
+  .progress-section h3 { font-size: 14px; margin-bottom: .7rem; }
+  .progress-chart {
+    display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 8px;
+    align-items: end; min-height: 142px; padding: 12px 10px 8px;
+    border: 1px solid var(--border); border-radius: 10px; background: var(--bg);
+  }
+  .chart-day { display: flex; flex-direction: column; align-items: center; justify-content: end; gap: 5px; min-width: 0; height: 120px; }
+  .chart-score { color: var(--text2); font: 11px var(--mono); }
+  .chart-track { display: flex; align-items: end; height: 82px; width: min(24px, 75%); }
+  .chart-bar { width: 100%; min-height: 3px; border-radius: 5px 5px 2px 2px; background: var(--accent); }
+  .chart-bar.empty { background: var(--surface); }
+  .chart-label { color: var(--text3); font-size: 10px; }
+  .progress-day-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: .75rem; }
+  .progress-day-row h3 { margin: 0; }
+  .progress-day-select {
+    max-width: 210px; background: var(--surface); border: 1px solid var(--border);
+    color: var(--text); padding: 8px 10px; border-radius: 8px; font: 12px var(--sans);
+  }
+  .progress-empty { padding: 1.25rem; text-align: center; color: var(--text3); font-size: 13px; border: 1px dashed var(--border); border-radius: 10px; }
+  .progress-entry { padding: 1rem; margin-top: 9px; border: 1px solid var(--border); border-radius: 10px; background: var(--bg); }
+  .progress-entry-head { display: flex; justify-content: space-between; gap: 1rem; align-items: flex-start; }
+  .progress-entry-question { font-size: 13px; font-weight: 500; line-height: 1.5; }
+  .progress-entry-meta { color: var(--text3); font-size: 11px; margin-top: 4px; }
+  .progress-entry-score { white-space: nowrap; font: 700 16px var(--mono); }
+  .progress-notes { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: .85rem; }
+  .progress-notes h4 { font-size: 11px; margin-bottom: 5px; }
+  .progress-notes ul { padding-left: 17px; color: var(--text2); font-size: 12px; line-height: 1.55; }
+  .progress-notes li + li { margin-top: 3px; }
+  .strength-title { color: var(--green); }
+  .improve-title { color: var(--amber); }
+
   /* SPINNER */
   .spinner {
     width: 15px; height: 15px; border: 2px solid rgba(255,255,255,.25);
@@ -289,6 +359,13 @@
     .hero h1 { font-size: 1.75rem; }
     .hero-stats { gap: 1.25rem; }
     nav { padding: 0 1rem; }
+    .nav-badge { display: none; }
+    .progress-summary { grid-template-columns: 1fr; gap: 7px; }
+    .progress-stat { padding: .75rem 1rem; }
+    .progress-stat-value { font-size: 18px; }
+    .progress-body { padding: 1rem; }
+    .progress-head { padding: 1rem; }
+    .progress-notes { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -299,8 +376,40 @@
     <div class="dot"></div>
     MockMentorAI
   </div>
-  <span class="nav-badge">Mentoring makes perfect</span>
+  <div class="nav-actions">
+    <span class="nav-badge">Practice with Purpose, Progress with Confidence</span>
+    <button class="progress-btn" type="button" onclick="openProgress()">Daily progress</button>
+  </div>
 </nav>
+
+<dialog class="progress-dialog" id="progressDialog" aria-labelledby="progressTitle">
+  <div class="progress-head">
+    <div>
+      <h2 id="progressTitle">Your daily progress</h2>
+      <div class="progress-subtitle">Practice history, score trends, strengths, and areas to improve</div>
+    </div>
+    <button class="progress-close" type="button" onclick="closeProgress()" aria-label="Close daily progress">×</button>
+  </div>
+  <div class="progress-body">
+    <div class="progress-notice" id="progressNotice" role="status"></div>
+    <div class="progress-summary">
+      <div class="progress-stat"><div class="progress-stat-value" id="progressAttempts">0</div><div class="progress-stat-label">Practices this day</div></div>
+      <div class="progress-stat"><div class="progress-stat-value" id="progressAverage">—</div><div class="progress-stat-label">Average score this day</div></div>
+      <div class="progress-stat"><div class="progress-stat-value" id="progressChange">—</div><div class="progress-stat-label">Last 7 days vs previous 7</div></div>
+    </div>
+    <section class="progress-section" aria-labelledby="trendTitle">
+      <h3 id="trendTitle">Score trend · last 7 days</h3>
+      <div class="progress-chart" id="progressChart" role="img" aria-label="Average scores over the last seven days"></div>
+    </section>
+    <section class="progress-section" aria-labelledby="dayTitle">
+      <div class="progress-day-row">
+        <h3 id="dayTitle">Daily breakdown</h3>
+        <select class="progress-day-select" id="progressDay" aria-label="Select practice day" onchange="renderProgressDay()"></select>
+      </div>
+      <div id="progressDayEntries"></div>
+    </section>
+  </div>
+</dialog>
 
 <section class="hero" id="top">
   <div class="hero-badge">✦ AI-Powered Mock Interview Practice</div>
@@ -430,9 +539,206 @@
 
 <script>
 const API = '';
+const PROGRESS_KEY = 'mockmentor_daily_progress_v1';
 let role = null, question = null;
 let timerSec = 0, timerOn = false, timerRef = null;
+let progressEntries = loadProgressEntries();
 let hist = [], scores = [];
+
+function loadProgressEntries() {
+  try {
+    const stored = JSON.parse(localStorage.getItem(PROGRESS_KEY) || '[]');
+    if (!Array.isArray(stored)) throw new Error('Saved progress is not a list.');
+    return stored.filter(entry => entry && typeof entry.date === 'string' &&
+      typeof entry.question === 'string' && typeof entry.score === 'number');
+  } catch (err) {
+    console.error('Unable to load saved practice progress.', err);
+    showProgressNotice('Saved progress could not be loaded from this browser.');
+    return [];
+  }
+}
+
+function showProgressNotice(message) {
+  const notice = document.getElementById('progressNotice');
+  if (!notice) return;
+  notice.textContent = message;
+  notice.classList.add('visible');
+}
+
+function saveProgressEntries() {
+  try {
+    localStorage.setItem(PROGRESS_KEY, JSON.stringify(progressEntries));
+  } catch (err) {
+    console.error('Unable to save practice progress.', err);
+    showProgressNotice('Progress could not be saved. Check browser storage settings.');
+  }
+}
+
+function localDateKey(date) {
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const day = String(date.getDate()).padStart(2, '0');
+  return `${year}-${month}-${day}`;
+}
+
+function extractFeedbackItems(feedback, sectionNames) {
+  const headingPattern = /(?:^|\*\*)\s*(?:#{1,6}\s*)?(?:\d+\.\s*)?(?:\*\*)?(STAR Score|Technical Accuracy|Strengths|What They Got Right|Areas to Improve|Gaps?\s*(?:&|and)\s*Errors|Stronger Version|Ideal Answer|Overall Score)(?:\*\*)?/i;
+  const wanted = new RegExp(`(?:^|\\*\\*)\\s*(?:#{1,6}\\s*)?(?:\\d+\\.\\s*)?(?:\\*\\*)?(?:${sectionNames.join('|')})(?:\\*\\*)?\\s*:?\\s*(.*)$`, 'i');
+  const lines = feedback.split(/\r?\n/);
+  let collecting = false;
+  const result = [];
+  for (const line of lines) {
+    const match = line.match(wanted);
+    if (match) {
+      collecting = true;
+      if (match[1].trim()) result.push(match[1].trim());
+      continue;
+    }
+    if (collecting && headingPattern.test(line.trim())) break;
+    if (collecting && line.trim()) {
+      result.push(line.trim().replace(/^(?:[-*•]|\d+[.)])\s*/, ''));
+    }
+  }
+  return result.map(item => item.replace(/\*\*/g, '').trim()).filter(Boolean).slice(0, 4);
+}
+
+function openProgress() {
+  renderProgress();
+  document.getElementById('progressDialog').showModal();
+}
+
+function closeProgress() {
+  document.getElementById('progressDialog').close();
+}
+
+function renderProgress() {
+  const today = localDateKey(new Date());
+  const recentDays = [];
+  for (let offset = 6; offset >= 0; offset--) {
+    const date = new Date();
+    date.setDate(date.getDate() - offset);
+    recentDays.push(localDateKey(date));
+  }
+
+  document.getElementById('progressChart').replaceChildren();
+  for (const dateKey of recentDays) {
+    const dayEntries = progressEntries.filter(entry => entry.date === dateKey);
+    const values = dayEntries.map(entry => entry.score).filter(Number.isFinite);
+    const average = values.length ? values.reduce((sum, value) => sum + value, 0) / values.length : null;
+    const day = document.createElement('div');
+    day.className = 'chart-day';
+    const score = document.createElement('span');
+    score.className = 'chart-score';
+    score.textContent = average === null ? '—' : average.toFixed(1);
+    const track = document.createElement('div');
+    track.className = 'chart-track';
+    const bar = document.createElement('div');
+    bar.className = 'chart-bar' + (average === null ? ' empty' : '');
+    bar.style.height = `${average === null ? 3 : Math.max(8, average * 8)}px`;
+    track.appendChild(bar);
+    const label = document.createElement('span');
+    label.className = 'chart-label';
+    label.textContent = new Date(`${dateKey}T12:00:00`).toLocaleDateString(undefined, { weekday: 'short' });
+    day.setAttribute('aria-label', `${dateKey}: ${average === null ? 'no score' : `average ${average.toFixed(1)} out of 10`}, ${dayEntries.length} practices`);
+    day.append(score, track, label);
+    document.getElementById('progressChart').appendChild(day);
+  }
+
+  const recent = progressEntries.filter(entry => entry.date >= recentDays[0] && entry.date <= today);
+  const previousStartDate = new Date();
+  previousStartDate.setDate(previousStartDate.getDate() - 13);
+  const previousStart = localDateKey(previousStartDate);
+  const previousEndDate = new Date();
+  previousEndDate.setDate(previousEndDate.getDate() - 7);
+  const previousEnd = localDateKey(previousEndDate);
+  const previous = progressEntries.filter(entry => entry.date >= previousStart && entry.date <= previousEnd);
+  const recentAverage = averageScore(recent);
+  const previousAverage = averageScore(previous);
+  const change = recentAverage === null || previousAverage === null ? null : recentAverage - previousAverage;
+  const changeEl = document.getElementById('progressChange');
+  changeEl.textContent = change === null ? '—' : `${change > 0 ? '+' : ''}${change.toFixed(1)} pts`;
+  changeEl.className = 'progress-stat-value' + (change === null ? '' : change > 0 ? ' hi' : change < 0 ? ' lo' : '');
+
+  const daySelect = document.getElementById('progressDay');
+  const days = [...new Set([today, ...progressEntries.map(entry => entry.date)])].sort().reverse();
+  const selected = daySelect.value && days.includes(daySelect.value)
+    ? daySelect.value
+    : days.find(date => progressEntries.some(entry => entry.date === date)) || today;
+  daySelect.replaceChildren();
+  days.forEach(date => {
+    const option = document.createElement('option');
+    option.value = date;
+    option.textContent = date === today ? `Today · ${date}` : new Date(`${date}T12:00:00`).toLocaleDateString(undefined, { dateStyle: 'medium' });
+    daySelect.appendChild(option);
+  });
+  daySelect.value = selected;
+  renderProgressDay();
+}
+
+function averageScore(entries) {
+  const values = entries.map(entry => entry.score).filter(Number.isFinite);
+  return values.length ? values.reduce((sum, value) => sum + value, 0) / values.length : null;
+}
+
+function renderProgressDay() {
+  const date = document.getElementById('progressDay').value || localDateKey(new Date());
+  const entries = progressEntries.filter(entry => entry.date === date).sort((a, b) => b.timestamp - a.timestamp);
+  const average = averageScore(entries);
+  document.getElementById('progressAttempts').textContent = entries.length;
+  document.getElementById('progressAverage').textContent = average === null ? '—' : `${average.toFixed(1)}/10`;
+  const container = document.getElementById('progressDayEntries');
+  container.replaceChildren();
+  if (!entries.length) {
+    const empty = document.createElement('div');
+    empty.className = 'progress-empty';
+    empty.textContent = 'No completed practices on this day yet. Finish an interview answer and your daily report will appear here.';
+    container.appendChild(empty);
+    return;
+  }
+
+  entries.forEach(entry => {
+    const card = document.createElement('article');
+    card.className = 'progress-entry';
+    const header = document.createElement('div');
+    header.className = 'progress-entry-head';
+    const info = document.createElement('div');
+    const prompt = document.createElement('div');
+    prompt.className = 'progress-entry-question';
+    prompt.textContent = entry.question;
+    const meta = document.createElement('div');
+    meta.className = 'progress-entry-meta';
+    meta.textContent = `${entry.role} · ${entry.type} · ${entry.words} words · ${entry.duration} · ${new Date(entry.timestamp).toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' })}`;
+    info.append(prompt, meta);
+    const score = document.createElement('div');
+    score.className = 'progress-entry-score ' + (entry.score >= 8 ? 'hi' : entry.score >= 5 ? 'mi' : 'lo');
+    score.textContent = `${entry.score}/10`;
+    header.append(info, score);
+
+    const notes = document.createElement('div');
+    notes.className = 'progress-notes';
+    notes.append(
+      createProgressList('Strengths', entry.strengths, 'strength-title'),
+      createProgressList('Focus next time', entry.improvements, 'improve-title')
+    );
+    card.append(header, notes);
+    container.appendChild(card);
+  });
+}
+
+function createProgressList(title, items, titleClass) {
+  const section = document.createElement('section');
+  const heading = document.createElement('h4');
+  heading.className = titleClass;
+  heading.textContent = title;
+  const list = document.createElement('ul');
+  (items.length ? items : ['No specific feedback captured for this section.']).forEach(item => {
+    const li = document.createElement('li');
+    li.textContent = item;
+    list.appendChild(li);
+  });
+  section.append(heading, list);
+  return section;
+}
 
 async function loadRoles() {
   const r = await fetch(API + '/api/roles');
@@ -471,11 +777,18 @@ async function generateQuestion() {
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({ role, difficulty: diff, question_type: type })
     });
-    if (!r.ok) throw new Error();
+    if (!r.ok) {
+      let detail = `Server returned ${r.status}`;
+      try {
+        const j = await r.json();
+        if (j.detail) detail = typeof j.detail === 'string' ? j.detail : JSON.stringify(j.detail);
+      } catch {}
+      throw new Error(detail);
+    }
     question = await r.json();
     showQuestion(question, diff, type);
-  } catch {
-    alert('Failed to generate question — check your GEMINI_API_KEY in AWS environment variables.');
+  } catch (err) {
+    alert('Failed to generate question — ' + (err && err.message ? err.message : 'could not reach the server.'));
   } finally {
     const label = document.querySelector('.role-btn.active')?.textContent?.trim() || 'Question';
     setBtnLoad('gen', false, `Generate ${label} Question`);
@@ -568,7 +881,7 @@ async function evaluateAnswer() {
     document.getElementById('scoreRow').style.display = 'flex';
     document.getElementById('nextBar').classList.add('visible');
 
-    addHist(question.question, scoreStr, type);
+    addHist(question.question, scoreStr, type, answer, full);
     updateStats();
   } catch {
     document.getElementById('evalContent').textContent = 'Evaluation failed — please try again.';
@@ -587,23 +900,63 @@ function md(t) {
     .replace(/\n/g, '<br/>');
 }
 
-function addHist(q, score, type) {
+function addHist(q, score, type, answer, feedback) {
   const label = document.querySelector('.role-btn.active')?.childNodes[1]?.textContent?.trim() || 'Unknown';
-  hist.unshift({ q, score, type, label, time: new Date().toLocaleTimeString() });
-  const n = parseInt(score);
-  const cls = n >= 8 ? 'hi' : n >= 5 ? 'mi' : 'lo';
+  const timestamp = Date.now();
+  const scoreValue = Number.parseInt(score, 10);
+  if (Number.isFinite(scoreValue)) {
+    progressEntries.unshift({
+      date: localDateKey(new Date(timestamp)),
+      timestamp,
+      question: q,
+      score: scoreValue,
+      role: label,
+      type,
+      words: answer.split(/\s+/).filter(Boolean).length,
+      duration: fmt(timerSec),
+      strengths: extractFeedbackItems(feedback, ['Strengths', 'What They Got Right']),
+      improvements: extractFeedbackItems(feedback, ['Areas to Improve', 'Gaps?\\s*(?:&|and)\\s*Errors'])
+    });
+    saveProgressEntries();
+  }
+  hist.unshift({ q, score, type, label, time: new Date(timestamp).toLocaleTimeString() });
+  renderHistory();
+}
+
+function renderHistory() {
   const el = document.getElementById('histList');
-  if (hist.length === 1) el.innerHTML = '';
-  el.insertAdjacentHTML('afterbegin', `<div class="h-item">
-    <div class="h-score ${cls}">${score}</div>
-    <div style="flex:1">
-      <div class="h-q">${q}</div>
-      <div class="h-meta">${label} · ${type} · ${hist[0].time}</div>
-    </div>
-  </div>`);
+  el.replaceChildren();
+  if (!hist.length) {
+    const empty = document.createElement('div');
+    empty.className = 'history-empty';
+    empty.textContent = 'No questions answered yet — start above!';
+    el.appendChild(empty);
+    return;
+  }
+  hist.slice(0, 30).forEach(item => {
+    const scoreValue = Number.parseInt(item.score, 10);
+    const cls = scoreValue >= 8 ? 'hi' : scoreValue >= 5 ? 'mi' : 'lo';
+    const row = document.createElement('div');
+    row.className = 'h-item';
+    const score = document.createElement('div');
+    score.className = `h-score ${cls}`;
+    score.textContent = item.score;
+    const details = document.createElement('div');
+    details.style.flex = '1';
+    const prompt = document.createElement('div');
+    prompt.className = 'h-q';
+    prompt.textContent = item.q;
+    const meta = document.createElement('div');
+    meta.className = 'h-meta';
+    meta.textContent = `${item.label} · ${item.type} · ${item.time}`;
+    details.append(prompt, meta);
+    row.append(score, details);
+    el.appendChild(row);
+  });
 }
 
 function updateStats() {
+  if (!hist.length) return;
   document.getElementById('statsBar').style.display = 'flex';
   document.getElementById('sQ').textContent = hist.length;
   if (scores.length) {
@@ -654,6 +1007,26 @@ function setBtnLoad(which, on, txt) {
   }
 }
 
+function restoreProgress() {
+  progressEntries.sort((a, b) => b.timestamp - a.timestamp);
+  hist = progressEntries.map(entry => ({
+    q: entry.question,
+    score: `${entry.score}/10`,
+    type: entry.type,
+    label: entry.role,
+    time: new Date(entry.timestamp).toLocaleTimeString()
+  }));
+  scores = progressEntries.map(entry => entry.score).filter(Number.isFinite);
+  renderHistory();
+  updateStats();
+  if (hist.length) document.getElementById('sRole').textContent = hist[0].label;
+}
+
+document.getElementById('progressDialog').addEventListener('click', event => {
+  if (event.target === event.currentTarget) closeProgress();
+});
+
+restoreProgress();
 loadRoles();
 </script>
 </body>
