@@ -6,7 +6,7 @@
 
 ---
 
-## 📋 Table of Contents
+##  Table of Contents
 
 - [About](#-about)
 - [Key Features](#-key-features)
@@ -22,7 +22,7 @@
 
 ---
 
-## 🟦 About
+##  About
 
 MockMentor is an AI-powered interview coaching platform that simulates real technical and HR interview sessions. It generates role-specific questions, evaluates your answers using LLMs, and gives structured feedback — all in real time.
 
@@ -36,36 +36,36 @@ MockMentor is an AI-powered interview coaching platform that simulates real tech
 
 ---
 
-## 🟩 Key Features
+##  Key Features
 
-### 🤖 AI-Driven Interview Sessions
+###  AI-Driven Interview Sessions
 - Generates role-specific questions based on domain and difficulty
 - Supports Technical, HR, and Behavioural interview types
 - Multi-turn conversation — the AI follows up based on your answers
 
-### 📊 Real-Time Answer Evaluation
+###  Real-Time Answer Evaluation
 - Evaluates answers on clarity, depth, technical accuracy, and relevance
 - Powered by Groq's LLaMA3-8B for sub-second inference
 - Scores each answer and explains what was strong and what was missing
 
-### 📋 Structured Feedback
+###  Structured Feedback
 - Per-answer improvement tips, not just a score
 - Identifies gaps in explanation and suggests better framing
 - Highlights strong points so you know what to keep doing
 
-### 🔒 Privacy by Design
+###  Privacy by Design
 - No answer data stored externally — all processing through secured API
 - Environment variables used for all sensitive credentials
 - No user tracking or third-party analytics
 
-### ⚡ Performance
+###  Performance
 - Sub-second LLM responses via Groq inference engine
 - FastAPI async backend handles concurrent sessions efficiently
 - Docker container ensures consistent performance across environments
 
 ---
 
-## 🔐 System Architecture
+##  System Architecture
 
 ### How We Handle AI Evaluation
 - **Question Generation:** Role and difficulty sent to LLaMA3 via Groq API — question returned in <1 second
@@ -87,7 +87,7 @@ MockMentor is an AI-powered interview coaching platform that simulates real tech
 
 ---
 
-## 🎬 See MockMentor-AI in Action
+##  See MockMentor-AI in Action
 
 MockMentor Live URL: http://interviewai-env.eba-qjkexinz.us-east-1.elasticbeanstalk.com/
 ![PrepNova Demo](screenshots/demo.gif)
@@ -100,7 +100,7 @@ MockMentor Live URL: http://interviewai-env.eba-qjkexinz.us-east-1.elasticbeanst
 
 ---
 
-## 🟦 Installation
+##  Installation
 
 ### Full Setup (Client and Server)
 
@@ -138,7 +138,7 @@ npm install
 
 ---
 
-## 🟦 Usage
+##  Usage
 
 ### What You'll Need
 - Python 3.11 or newer
@@ -173,7 +173,7 @@ App available at: `http://localhost:5173`
 7. Continue to the next question or end the session for a summary
 8. Review your overall performance and focus areas before your next practice
 
-### 🐳 Running with Docker
+###  Running with Docker
 
 ```bash
 # Build and start everything
@@ -186,7 +186,7 @@ docker run -p 8000:8000 --env-file ./backend/.env mockmentor-ai
 
 ---
 
-## 🟦 Tech Stack
+##  Tech Stack
 
 PrepNova was built using:
 
@@ -200,7 +200,7 @@ PrepNova was built using:
 
 ---
 
-## 🤝 Contributing
+##  Contributing
 
 We'd love to help make MockMentor-AI even better:
 
@@ -213,7 +213,7 @@ We'd love to help make MockMentor-AI even better:
 
 ---
 
-## 🔒 Found a Bug?
+##  Found a Bug?
 
 For bugs or issues, please open a [GitHub Issue](https://github.com/Irin356/MockMentor-AI/issues) with:
 - Steps to reproduce
@@ -224,7 +224,7 @@ For security vulnerabilities, please report privately via GitHub's security advi
 
 ---
 
-## ⚠️ API Considerations
+##  API Considerations
 
 - **Groq Free Tier:** Rate limits apply on the free plan — avoid rapid repeated submissions
 - **Key Safety:** Never commit your `.env` file — it is already in `.gitignore`
