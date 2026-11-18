@@ -89,6 +89,7 @@ MockMentor is an AI-powered interview coaching platform that simulates real tech
 
 ## 🎬 See MockMentor-AI in Action
 
+MockMentor Live URL: http://interviewai-env.eba-qjkexinz.us-east-1.elasticbeanstalk.com/
 ![PrepNova Demo](screenshots/demo.gif)
 
 *Click the image above to watch the demo*
@@ -199,16 +200,6 @@ PrepNova was built using:
 
 ---
 
-## 👥 Team
-
-PrepNova was built by:
-
-- **[Irin Antony](https://github.com/Irin356)** — Full-stack development, LLM integration, AWS deployment
-
-B.Tech CSE, Government Model Engineering College, Kochi — KTU 2027 Batch
-
----
-
 ## 🤝 Contributing
 
 We'd love to help make MockMentor-AI even better:
@@ -240,5 +231,8 @@ For security vulnerabilities, please report privately via GitHub's security advi
 - **AWS Costs:** Elastic Beanstalk uses EC2 — remember to terminate environments when not in use to avoid charges
 
 ---
+License & Acknowledgments
 
-*Thank you for checking out MockMentor!*
+This project is open source and available under the MIT License.
+
+*Thank you for checking out MockMentor*
