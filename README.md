@@ -233,12 +233,6 @@ For security vulnerabilities, please report privately via GitHub's security advi
 
 ---
 
-## 📋 License
-
-MockMentor-AI is MIT licensed — see the [LICENSE](LICENSE) file for details.
-
----
-
 ## ⚠️ API Considerations
 
 - **Groq Free Tier:** Rate limits apply on the free plan — avoid rapid repeated submissions
