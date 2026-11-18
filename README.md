@@ -1,6 +1,6 @@
 # MockMentor
-*MockMentor is an [AI-powered](https://groq.com) mock interview platform built with [FastAPI](https://fastapi.tiangolo.com) and [Groq LLaMA3](https://console.groq.com). Practice real interview questions, get instant feedback, and go into placements confident.*
-
+**AI-Based Interview Preparation & Intelligent Answer Evaluation Platform**
+MockMentor helps candidates prepare for technical, HR, and behavioral interviews through role-specific, AI-driven practice. Powered by Groq LLaMA 3, it generates interview questions and contextual follow-ups, evaluates responses, and provides structured scoring and personalized feedback, including STAR-based behavioral assessment.
 
 MockMentor Live URL: http://interviewai-env.eba-qjkexinz.us-east-1.elasticbeanstalk.com/
 
@@ -24,9 +24,13 @@ MockMentor Live URL: http://interviewai-env.eba-qjkexinz.us-east-1.elasticbeanst
 
 ##  About
 
-MockMentor is an AI-powered interview coaching platform that simulates real technical and HR interview sessions. It generates role-specific questions, evaluates your answers using LLMs, and gives structured feedback — all in real time.
+Candidates preparing for technical and behavioral interviews may have limited access to realistic practice tailored to a specific job role, difficulty level, and interview format. They may also struggle to identify weaknesses in their answers without consistent, structured feedback.
 
-**Why would you use MockMentor-AI?**
+MockMentor is an interview preparation platform designed to address this challenge. Candidates select from six professional roles, choose an experience level and interview type, and receive AI-generated questions with hints and likely follow-up questions. The platform evaluates submitted answers and streams structured feedback, including STAR-based assessment for behavioral responses and technical accuracy and gap analysis for technical responses.
+
+MockMentor also includes timed practice, in-session question history, performance scores, and browser-based daily progress tracking to help candidates review their strengths and areas for improvement.
+
+**Why would you use MockMentor?**
 
 - When you want to practice interviews without needing another person
 - For getting honest, structured feedback on your answers instantly
