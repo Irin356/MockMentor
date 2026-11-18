@@ -1,5 +1,7 @@
 # MockMentor
+
 **AI-Based Interview Preparation & Intelligent Answer Evaluation Platform**
+
 MockMentor helps candidates prepare for technical, HR, and behavioral interviews through role-specific, AI-driven practice. Powered by Groq LLaMA 3, it generates interview questions and contextual follow-ups, evaluates responses, and provides structured scoring and personalized feedback, including STAR-based behavioral assessment.
 
 MockMentor Live URL: http://interviewai-env.eba-qjkexinz.us-east-1.elasticbeanstalk.com/
