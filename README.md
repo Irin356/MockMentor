@@ -91,12 +91,6 @@ MockMentor is an AI-powered interview coaching platform that simulates real tech
 
 MockMentor Live URL: http://interviewai-env.eba-qjkexinz.us-east-1.elasticbeanstalk.com/
 
-*Click the image above to watch the demo*
-
-| Interview Session | Feedback View | Question Selection |
-|---|---|---|
-| ![Session](screenshots/session.png) | ![Feedback](screenshots/feedback.png) | ![Questions](screenshots/questions.png) |
-
 ---
 
 ##  Installation
