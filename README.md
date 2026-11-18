@@ -1,8 +1,6 @@
 # MockMentor
 *MockMentor is an [AI-powered](https://groq.com) mock interview platform built with [FastAPI](https://fastapi.tiangolo.com) and [Groq LLaMA3](https://console.groq.com). Practice real interview questions, get instant feedback, and go into placements confident.*
-
-![MockMentor-AI Banner](screenshots/banner.png)
-
+MockMentor Live URL: http://interviewai-env.eba-qjkexinz.us-east-1.elasticbeanstalk.com/
 
 ---
 
@@ -90,7 +88,6 @@ MockMentor is an AI-powered interview coaching platform that simulates real tech
 ##  See MockMentor-AI in Action
 
 MockMentor Live URL: http://interviewai-env.eba-qjkexinz.us-east-1.elasticbeanstalk.com/
-![PrepNova Demo](screenshots/demo.gif)
 
 *Click the image above to watch the demo*
 
