@@ -241,4 +241,4 @@ For security vulnerabilities, please report privately via GitHub's security advi
 
 ---
 
-*Thank you for checking out AI MOCK INTERVIEW(PrepNova)!*
+*Thank you for checking out MockMentor!*
