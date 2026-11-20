@@ -71,22 +71,23 @@ MockMentor also includes timed practice, in-session question history, performanc
 
 ---
 
-##  System Architecture
 
+## System Architecture
+
+```mermaid
 flowchart TD
     A([Candidate])
 
-    subgraph FRONTEND["1. Frontend - Browser"]
-        B["MockMentor Web Interface<br/>HTML · CSS · JavaScript"]
+    subgraph FE["Frontend - Browser"]
+        B["MockMentor Web Interface<br/>HTML, CSS, JavaScript"]
         C["Select Role, Difficulty<br/>and Interview Type"]
         D["Display Questions<br/>and AI Feedback"]
-        E[("Browser LocalStorage<br/>Practice History & Scores")]
-        B --> C
-        C --> D
+        E[("LocalStorage<br/>Practice History and Scores")]
+        B --> C --> D
         D <--> E
     end
 
-    subgraph BACKEND["2. Backend - FastAPI"]
+    subgraph BE["Backend - FastAPI"]
         F["FastAPI Application"]
         G["REST API Endpoints"]
         H["Question Generation"]
@@ -96,10 +97,10 @@ flowchart TD
         G --> I
     end
 
-    subgraph AI["3. AI Processing - Groq"]
-        J["Groq LLM API<br/>Llama 3.3 70B"]
-        K["Generate Interview Question<br/>Hint & Follow-up"]
-        L["Evaluate Answer<br/>STAR / Technical Assessment"]
+    subgraph AI["AI Processing - Groq"]
+        J["Groq LLM API"]
+        K["Generate Questions, Hints<br/>and Follow-up Questions"]
+        L["Evaluate Answers<br/>STAR and Technical Assessment"]
         J --> K
         J --> L
     end
@@ -107,19 +108,15 @@ flowchart TD
     A --> B
     C -->|"HTTP JSON Request"| G
     H -->|"AI Prompt"| J
-    K -->|"JSON Response"| D
     I -->|"Evaluation Prompt"| J
-    L -->|"Streaming Feedback"| I
-    I -->|"Server-Sent Events (SSE)"| D
+    K -->|"JSON Response"| D
+    L -->|"SSE Feedback Stream"| D
 
-    subgraph DEPLOY["Deployment"]
-        M["Docker Container"]
-        N["Uvicorn Server"]
-        M --> N
-    end
-
+    M["Docker Container"]
+    N["Uvicorn Server"]
+    M --> N
     N -.-> F
-
+```
 
 ### How We Handle AI Evaluation
 - **Question Generation:** Role and difficulty sent to LLaMA3 via Groq API — question returned in <1 second
@@ -242,7 +239,7 @@ PrepNova was built using:
 - **Frontend:** React (Vite), Axios
 - **Containerisation:** Docker, Docker Compose
 - **Cloud:** AWS Elastic Beanstalk (EC2 + Load Balancer)
-- **Database:** PostgreSQL *(in progress)*
+- **Database:** PostgreSQL
 - **Config:** python-dotenv, Pydantic Settings
 
 ---
