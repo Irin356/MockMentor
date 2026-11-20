@@ -73,6 +73,54 @@ MockMentor also includes timed practice, in-session question history, performanc
 
 ##  System Architecture
 
+flowchart TD
+    A([Candidate])
+
+    subgraph FRONTEND["1. Frontend - Browser"]
+        B["MockMentor Web Interface<br/>HTML · CSS · JavaScript"]
+        C["Select Role, Difficulty<br/>and Interview Type"]
+        D["Display Questions<br/>and AI Feedback"]
+        E[("Browser LocalStorage<br/>Practice History & Scores")]
+        B --> C
+        C --> D
+        D <--> E
+    end
+
+    subgraph BACKEND["2. Backend - FastAPI"]
+        F["FastAPI Application"]
+        G["REST API Endpoints"]
+        H["Question Generation"]
+        I["Answer Evaluation"]
+        F --> G
+        G --> H
+        G --> I
+    end
+
+    subgraph AI["3. AI Processing - Groq"]
+        J["Groq LLM API<br/>Llama 3.3 70B"]
+        K["Generate Interview Question<br/>Hint & Follow-up"]
+        L["Evaluate Answer<br/>STAR / Technical Assessment"]
+        J --> K
+        J --> L
+    end
+
+    A --> B
+    C -->|"HTTP JSON Request"| G
+    H -->|"AI Prompt"| J
+    K -->|"JSON Response"| D
+    I -->|"Evaluation Prompt"| J
+    L -->|"Streaming Feedback"| I
+    I -->|"Server-Sent Events (SSE)"| D
+
+    subgraph DEPLOY["Deployment"]
+        M["Docker Container"]
+        N["Uvicorn Server"]
+        M --> N
+    end
+
+    N -.-> F
+
+
 ### How We Handle AI Evaluation
 - **Question Generation:** Role and difficulty sent to LLaMA3 via Groq API — question returned in <1 second
 - **Answer Evaluation:** Your answer + the original question are sent together for contextual evaluation
